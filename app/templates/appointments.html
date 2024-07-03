@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Appointments</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Actions</th>
+    </tr>
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{ appointment.name }}</td>
+        <td>{{ appointment.email }}</td>
+        <td>{{ appointment.make }}</td>
+        <td>{{ appointment.model }}</td>
+        <td>{{ appointment.year }}</td>
+        <td>
+            {% if current_user.role == 'admin' %}
+            <a href="{{ url_for('mark_attended', id=appointment.id) }}">{{ 'Mark Attended' if not appointment.attended else 'Unmark Attended' }}</a>
+            {% endif %}
+            <a href="{{ url_for('delete_appointment', id=appointment.id) }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Quote Requests</h2>
+<table>
+    <tr>
+        <th>Owner Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Vehicle Registration</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Response</th>
+        <th>Actions</th>
+    </tr>
+    {% for quote in quotes %}
+    <tr>
+        <td>{{ quote.owner_name }}</td>
+        <td>{{ quote.email }}</td>
+        <td>{{ quote.phone }}</td>
+        <td>{{ quote.vehicle_registration }}</td>
+        <td>{{ quote.make }}</td>
+        <td>{{ quote.model }}</td>
+        <td>{{ quote.year }}</td>
+        <td>{{ quote.response or 'No response yet' }}</td>
+        <td>
+            <a href="{{ url_for('respond_quote', id=quote.id) }}">Respond</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

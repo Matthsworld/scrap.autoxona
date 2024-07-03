@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="slider">
+    <img src="{{ url_for('static', filename='images/car_scrap_slide.jpg') }}" alt="Slider Image">
+    <div class="caption">We'll buy your car for scrap regardless of whether it’s a non-runner, an insurance write-off, damaged, abandoned or unroadworthy and whatever make, model, age or condition.</div>
+    <a href="{{ url_for('list_scrap') }}" class="btn btn-red">List Now</a>
+</div>
+
+<div class="quote-section">
+    <h2>GET YOUR FREE INSTANT ONLINE CAR VALUATION</h2>
+    <form method="POST" action="{{ url_for('submit_quote') }}">
+        {{ form.hidden_tag() }}
+        {{ form.owner_name.label }} {{ form.owner_name() }}
+        {{ form.gender.label }} {{ form.gender() }}
+        {{ form.email.label }} {{ form.email() }}
+        {{ form.phone.label }} {{ form.phone() }}
+        {{ form.home_address.label }} {{ form.home_address() }}
+        {{ form.vehicle_registration.label }} {{ form.vehicle_registration() }}
+        {{ form.make.label }} {{ form.make() }}
+        {{ form.model.label }} {{ form.model() }}
+        {{ form.year.label }} {{ form.year() }}
+        <button type="submit" class="btn btn-red">Request Quote</button>
+    </form>
+</div>
+{% endblock %}

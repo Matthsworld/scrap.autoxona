@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>List Your Scrap Vehicle</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.owner_name.label }} {{ form.owner_name(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.gender.label }} {{ form.gender(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.email.label }} {{ form.email(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.phone.label }} {{ form.phone(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.home_address.label }} {{ form.home_address(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.vehicle_registration.label }} {{ form.vehicle_registration(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.make.label }} {{ form.make(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.model.label }} {{ form.model(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.year.label }} {{ form.year(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-red">List Scrap</button>
+</form>
+{% endblock %}
