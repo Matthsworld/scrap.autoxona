@@ -89,7 +89,7 @@ scrap.autoxona/
 # Usage
 ## User Features
 
-Home Page
+* Home Page
 View a sliding image with a caption and a button to list a scrap vehicle.
 Request a free instant online car valuation by filling out a form.
 List a Scrap
